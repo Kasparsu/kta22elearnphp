@@ -1,44 +1,19 @@
-<?php
+<?php require 'partials/header.php' ?>
+<?php 
+$name = 'Kaspar';
+?>
+    Home
+    <h1>Hello <?=$name?></h1>
 
-class Box {
-    public function __construct($num, $color)
-    {
-        echo "object was created\n";
-    }
+    <?php if(true): ?>
+        <h1>True</h1>
+    <?php else: ?>
+        <h1>False</h1>
+    <?php endif; ?>
+    <ol>
+        <?php for($i=0; $i<10; $i++): ?>
+            <li>Item <?=$i?></li>
+        <?php endfor; ?>
+    </ol>
+<?php require 'partials/footer.php' ?>
 
-    public function __get($name){
-        echo "$name is accessed\n";
-        return 'hello';
-    }
-    public function __set($name, $value){
-        echo "$name is given value $value\n";
-    }
-
-    public function __call($name, $params){
-        echo "$name is called with \n";
-        var_dump($params);
-    }
-
-    public function __invoke(...$params){
-        echo "object is used like a function\n";
-        var_dump($params);
-    }
-
-    public function __destruct()
-    {
-        echo "object was destroyed\n";
-    }
-
-    public function __toString() {
-        return "bla bla to string\n";
-    }
-}
-
-$box1 = new Box(1, 'color');
-echo $box1->color;
-$box1->material = 'metal';
-$box1->nothing(1, 'hello');
-$box1(1, 'hello');
-$box1 = 1;
-$box2 = new Box(2, 'asdas');
-echo $box1;
