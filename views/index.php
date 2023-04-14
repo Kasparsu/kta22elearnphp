@@ -1,7 +1,4 @@
 <?php require 'partials/header.php' ?>
-<?php 
-$name = 'Kaspar';
-?>
     Home
     <h1>Hello <?=$name?></h1>
 
@@ -16,4 +13,5 @@ $name = 'Kaspar';
         <?php endfor; ?>
     </ol>
 <?php require 'partials/footer.php' ?>
+
 
