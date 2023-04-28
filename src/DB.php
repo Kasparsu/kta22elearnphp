@@ -31,4 +31,12 @@ class DB {
         $stmt->setFetchMode(PDO::FETCH_CLASS, $class);
         return $stmt->fetch();
     }
+
+    public function insert($table, $fields, $values){
+        $fieldNamesLine = implode(', ', $fields);
+        $valuesLine = implode("', '", $values);
+        $sql = "INSERT INTO $table ($fieldNamesLine) VALUES ('$valuesLine')";
+        // use exec() because no results are returned
+        $this->conn->exec($sql);
+    }
 }
